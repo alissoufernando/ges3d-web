@@ -25,17 +25,17 @@
                     </div>
                     <ul class="parent">
                         <li>
-                            <a href="index.html" class="link-underline link-underline-1">
+                            <a href="{{ route('welcome') }}" class="link-underline link-underline-1">
                                 <span>Accueil</span>
                             </a>
                         </li>
                         <li class="has-child">
-                            <a href="about.html" class="link-underline link-underline-1">
+                            <a href="{{ route('site.about') }}" class="link-underline link-underline-1">
                                 <span>À propos</span>
                             </a>
                         </li>
                         <li class="has-child">
-                            <a href="blog-1.html" class="link-underline link-underline-1">
+                            <a href="{{ route('site.sensibilisation') }}" class="link-underline link-underline-1">
                                 <span>Sensibilisation</span>
                             </a>
                         </li>
@@ -45,17 +45,17 @@
                             </a>
                         </li> -->
                         <li>
-                            <a href="pricing.html" class="link-underline link-underline-1">
+                            <a href="{{ route('site.boutique') }}" class="link-underline link-underline-1">
                                 <span>Boutique</span>
                             </a>
                         </li>
                         <li>
-                            <a href="contact.html" class="link-underline link-underline-1">
+                            <a href="{{ route('site.contact') }}" class="link-underline link-underline-1">
                                 <span>Contactez-nous</span>
                             </a>
                         </li>
                         <li>
-                            <a href="login.html" class="link-underline link-underline-1">
+                            <a href="{{ route('site.login') }}" class="link-underline link-underline-1">
                                 <span>Connexion</span>
                                 <!-- <i class="fab fa-user-circle-o"></i> -->
                             </a>
@@ -65,22 +65,22 @@
                         <h6>Follow</h6>
                         <ul>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <i class="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="#">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>

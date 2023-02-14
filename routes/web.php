@@ -14,6 +14,13 @@ use App\Http\Livewire\Dashboard\Products\ListeProductComponent;
 use App\Http\Livewire\Dashboard\Utilisateurs\AddUserComponent;
 use App\Http\Livewire\Dashboard\Utilisateurs\EditUserComponent;
 use App\Http\Livewire\Dashboard\Utilisateurs\ListeUsersComponent;
+use App\Http\Livewire\Site\AboutComponent;
+use App\Http\Livewire\Site\AlertComponent;
+use App\Http\Livewire\Site\BoutiqueComponent;
+use App\Http\Livewire\Site\ContactComponent;
+use App\Http\Livewire\Site\LoginComponent;
+use App\Http\Livewire\Site\RegisterComponent;
+use App\Http\Livewire\Site\SensiblisationComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +54,15 @@ Route::get('/products', ListeProductComponent::class)->name('dashboard.liste-pro
 Route::get('/product', AddArticleComponent::class)->name('dashboard.add-product');
 Route::get('/productedit', EditArticleComponent::class)->name('dashboard.edit-product');
 
+// liste des routes pour le site
 
+Route::get('/sensibilisation', SensiblisationComponent::class)->name('site.sensibilisation');
+Route::get('/login', LoginComponent::class)->name('site.login');
+Route::get('/register', RegisterComponent::class)->name('site.register');
+Route::get('/boutique', BoutiqueComponent::class)->name('site.boutique');
+Route::get('/about', AboutComponent::class)->name('site.about');
+Route::get('/contact', ContactComponent::class)->name('site.contact');
+
+Route::get('/alert', AlertComponent::class)->name('site.alert');
 
 

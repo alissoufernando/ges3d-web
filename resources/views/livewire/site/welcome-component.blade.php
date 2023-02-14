@@ -11,14 +11,14 @@
                             <h1>Débarassez-vous du danger que représente les déchets d'équipements électriques et électroniques </h1>
                             <p class="large">Donnez nous 1 kilo de vos déchets électriques en échange de 10 wastes</p>
                                <div class="download-button-group">
-                                <a href="login.html" class="download-button download-button-2 download-button-google">
+                                <a  href="{{ route('site.alert') }}" class="download-button download-button-2 download-button-google">
                                     <div class="download-button-inner">
                                         <div class="download-button-icon c-green">
                                             <i class="fa-solid fa-bell"></i>
                                         </div>
                                         <div class="download-button-content">
                                             <!--<h5 class="c-grey upper ls-1">get it on</h5>-->
-                                            <h3 class="c-dark ls-2">Lancer l'alerte</h3>
+                                            <h3 class="c-dark ls-2">Lancer l'alerte </h3>
                                         </div>
                                     </div>
                                 </a>
@@ -45,10 +45,10 @@
 
             </div>
             <div class="background-pattern background-pattern-1">
-                <div class="background-pattern-img background-loop" style="background-image: url(assets/images/patterns/pattern.jpg);"></div>
+                <div class="background-pattern-img background-loop" style="background-image: url(assets/site/images/patterns/pattern.jpg);"></div>
                 <div class="background-pattern-gradient"></div>
                 <div class="background-pattern-bottom">
-                    <div class="image" style="background-image: url(assets/images/patterns/pattern-1.jpg)"></div>
+                    <div class="image" style="background-image: url(assets/site/images/patterns/pattern-1.jpg)"></div>
                 </div>
             </div>
         </div>
