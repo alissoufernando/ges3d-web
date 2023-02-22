@@ -87,10 +87,11 @@
                                     </div>
                                     <div class="form-floating">
                                         <input class="input form-control" id="email-field" type="file" placeholder="Votre photo">
-                                        
+
                                     </div>
                                     <div class="form-floating">
-                                        <textarea name="" id="" cols="65" rows="10"></textarea>
+                                        <input class="input form-control" id="message-field" type="text" placeholder="Message">
+                                        <label for="message-field">Message</label>
 
                                     </div>
 

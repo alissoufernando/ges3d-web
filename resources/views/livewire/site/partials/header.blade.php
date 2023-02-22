@@ -55,6 +55,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('site.alert') }}" class="link-underline link-underline-1">
+                                <span>Alertez-nous</span>
+                                <!-- <i class="fab fa-user-circle-o"></i> -->
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('site.login') }}" class="link-underline link-underline-1">
                                 <span>Connexion</span>
                                 <!-- <i class="fab fa-user-circle-o"></i> -->

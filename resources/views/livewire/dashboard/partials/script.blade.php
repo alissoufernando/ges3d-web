@@ -16,3 +16,5 @@
 <script src="{{ asset('assets/dash/js/custom.js') }}"></script>
 @yield('scripts')
 
+
+
