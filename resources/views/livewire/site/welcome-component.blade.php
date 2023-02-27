@@ -390,45 +390,21 @@
                     </div>
                 </div>
                 <div class="row gx-5">
-                    <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                               <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/bulbs.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>Les DEE et la santé de l'homme</h3>
-                                    </a>
-                                    <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p>
-                               </div>
-                               <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                    @foreach ($articles as $article)
+                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
                         <div class="blog-single blog-single-1">
                             <div class="blog-single-wrapper">
                                 <div class="blog-single-content">
                                     <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/electronics_repair.jpg" alt="blog-image">
+                                        @if ($article->path)
+                                        <img src="{{ asset('storage') }}/{{ $article->path }}" alt="{{ $article->titre }}">
+                                        @else
+                                        <img src="assets/site/images/bulbs.jpg" alt="{{ $article->titre }}">
+
+                                        @endif
                                     </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>Les DEEE et les ondes radioactives</h3>
+                                    <a href="">
+                                        <h3>{{ $article->titre }}</h3>
                                     </a>
                                     <div class="blog-single-details">
                                         <div class="comments">
@@ -441,7 +417,7 @@
                                             Dec 10, 2020
                                         </div>
                                     </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p>
+                                    <p>{{ $article->description }}</p>
                                 </div>
                                 <a href="blog-detail-1.html" class="circle">
                                     <i class="las la-plus"></i>
@@ -450,36 +426,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/chips.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>Tout savoir sur les puces électroniques</h3>
-                                    </a>
-                                    <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p>
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -488,7 +435,7 @@
     blog section - end
     -->
 
-    <!--
+  <!--
     contact form section - start
     -->
     <div class="contact-form-section">
@@ -504,24 +451,37 @@
                                 <div class="section-heading section-heading-2 center">
                                     <div class="sub-heading c-green upper ls-1">
                                         <i class="las la-envelope"></i>
-                                        <h5>Nous contacter</h5>
+                                        <h5>contact</h5>
                                     </div>
                                     <div class="main-heading c-dark">
-                                        <h1>Écrire un message</h1>
+                                        <h1>Écrire le message</h1>
                                     </div>
+                                    @if (Session::has('message'))
+                                    <div class="alert alert-success">{{Session::get('message')}}</div>
+                                    @endif
                                 </div>
-                                <form>
+                                <form wire:submit.prevent='saveContact'>
+
                                     <div class="form-floating">
-                                        <input class="input form-control" id="name-field" type="text" placeholder="Full name">
-                                        <label for="name-field">Nom complet</label>
+                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre nom" wire:model="nom">
+                                        <label for="name-field">Nom</label>
+                                        @error('nom')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="text" placeholder="Email address">
-                                        <label for="email-field">Adresse e-mail</label>
+                                        <input class="input form-control" id="email-field" type="email" placeholder="Votre adresse mail" wire:model="email">
+                                        <label for="email-field">Adresse</label>
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="message-field" type="text" placeholder="Message">
+                                        <input class="input form-control" id="message-field" type="text" placeholder="Message" wire:model="message">
                                         <label for="message-field">Message</label>
+                                        @error('message')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <button type="submit" class="button button-2">
                                         <span class="button-inner">
@@ -546,24 +506,31 @@
                                 <div class="section-heading section-heading-2 center">
                                     <div class="sub-heading c-green upper ls-1">
                                         <i class="las la-envelope-open"></i>
-                                        <h5>S'abonner</h5>
+                                        <h5>s'abonner</h5>
                                     </div>
                                     <div class="main-heading c-dark">
-                                        <h1>Nos newsletters</h1>
+                                        <h1>Notre newsletter</h1>
                                     </div>
+                                    @if (Session::has('messageN'))
+                                    <div class="alert alert-success">{{Session::get('messageN')}}</div>
+                                    @endif
                                 </div>
                                 <div class="contact-form-icon">
                                     <i class="las la-envelope-open-text"></i>
                                 </div>
-                                <form>
+                                <form wire:submit.prevent='saveNewLetter'>
+
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field-1" type="text" placeholder="Email address">
-                                        <label for="email-field-1">Adresse e-mail</label>
+                                        <input class="input form-control" id="email-field-1" type="email" placeholder="Votre adresse mail" wire:model="emailNewletter">
+                                        <label for="email-field-1">Adresse mail</label>
+                                        @error('emailNewletter')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <button type="submit" class="button button-3">
                                         <span class="button-inner">
                                             <span class="button-content">
-                                                <span class="text">S'abonner</span>
+                                                <span class="text">s'abonner</span>
                                             </span>
                                         </span>
                                     </button>

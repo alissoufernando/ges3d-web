@@ -3,17 +3,17 @@
         <div class="container">
             <div class="navigation-inner">
                 <div class="navigation-logo">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="/">
                         <img src="{{ asset('assets/site/images/ewaste.png') }}" alt="orions-logo" class="ewaste">
                     </a>
-                    <a class="logo-white" href="index.html">
+                    <a class="logo-white" href="/">
                         <img src="{{ asset('assets/site/images/ewaste.png') }}" alt="orions-logo" style="filter: brightness(0) invert(1);" class="ewaste">
                     </a>
                 </div>
                 <div class="navigation-menu">
                     <div class="mobile-header">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="/">
                                 <img src="{{ asset('assets/site/images/ewaste.png') }}" alt="image" style="filter: brightness(0) invert(1);" class="ewaste">
                             </a>
                         </div>
@@ -24,7 +24,7 @@
                         </ul>
                     </div>
                     <ul class="parent">
-                        <li>
+                        <li class="">
                             <a href="{{ route('welcome') }}" class="link-underline link-underline-1">
                                 <span>Accueil</span>
                             </a>

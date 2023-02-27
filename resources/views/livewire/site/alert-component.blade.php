@@ -71,27 +71,31 @@
                                     <div class="main-heading c-dark">
                                         <h1>Renseignez vos informations</h1>
                                     </div>
+                                    @if (Session::has('message'))
+                                    <div class="alert alert-success">{{Session::get('message')}}</div>
+                                    @endif
                                 </div>
-                                <form>
-                                    <div class="form-floating">
-                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre nom">
-                                        <label for="name-field">Votre nom</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre prenom">
-                                        <label for="name-field">Votre Prénom</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="text" placeholder="Votre adresse">
-                                        <label for="email-field">Adresse</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="file" placeholder="Votre photo">
+                                <form wire:submit.prevent='saveAlert'>
 
+                                    <div class="form-floating">
+                                        <input class="input form-control" id="email-field" type="text" placeholder="Votre adresse" wire:model="geo_location">
+                                        <label for="email-field">Géolocation</label>
+                                        @error('geo_location')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="message-field" type="text" placeholder="Message">
+                                        <input class="input form-control" id="email-field" type="file" placeholder="Votre photo" wire:model="path">
+                                        @error('path')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="input form-control" id="message-field" type="text" placeholder="Message" wire:model="message">
                                         <label for="message-field">Message</label>
+                                        @error('message')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
 
                                     </div>
 

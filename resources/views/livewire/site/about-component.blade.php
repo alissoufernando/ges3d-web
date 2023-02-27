@@ -39,10 +39,10 @@
                 </div>
             </div>
             <div class="background-pattern background-pattern-1">
-                <div class="background-pattern-img background-loop" style="background-image: url(assets/images/patterns/pattern.jpg);"></div>
+                <div class="background-pattern-img background-loop" style="background-image: url(assets/site/images/patterns/pattern.jpg);"></div>
                 <div class="background-pattern-gradient"></div>
                 <div class="background-pattern-bottom">
-                    <div class="image" style="background-image: url(assets/images/patterns/.jpg)"></div>
+                    <div class="image" style="background-image: url(assets/site/images/patterns/.jpg)"></div>
                 </div>
             </div>
         </div>
@@ -82,9 +82,9 @@
                         <div class="about-section-image">
                             <div class="pattern-image pattern-image-1">
                                 <div class="pattern-image-wrapper">
-                                    <img class="drop-shadow-4" src="assets/images/electronics_repair.jpg" alt="image">
+                                    <img class="drop-shadow-4" src="assets/site/images/electronics_repair.jpg" alt="image">
                                     <div class="background-pattern background-pattern-radius drop-shadow">
-                                        <div class="background-pattern-img background-loop" style="background-image: url(assets/images/patterns/pattern.jpg);"></div>
+                                        <div class="background-pattern-img background-loop" style="background-image: url(assets/site/images/patterns/pattern.jpg);"></div>
                                         <div class="background-pattern-gradient"></div>
                                     </div>
                                 </div>
@@ -316,7 +316,7 @@
                                         <div class="image">
                                             <div class="image-wrapper">
                                                 <div class="image-inner">
-                                                    <img src="assets/images/testimonial-slide-img-2.png" alt="testimony-image">
+                                                    <img src="{{ asset('assets/site/images/testimonial-slide-img-2.png') }}" alt="testimony-image">
                                                 </div>
                                             </div>
                                         </div>
@@ -331,7 +331,7 @@
                                         <div class="image">
                                             <div class="image-wrapper">
                                                 <div class="image-inner">
-                                                    <img src="assets/images/testimonial-slide-img-1.png" alt="testimony-image">
+                                                    <img src="{{ asset('assets/site/images/testimonial-slide-img-1.png') }}" alt="testimony-image">
                                                 </div>
                                             </div>
                                         </div>
@@ -346,7 +346,7 @@
                                         <div class="image">
                                             <div class="image-wrapper">
                                                 <div class="image-inner">
-                                                    <img src="assets/images/testimonial-slide-img-3.png" alt="testimony-image">
+                                                    <img src="{{ asset('assets/site/images/testimonial-slide-img-3.png') }}" alt="testimony-image">
                                                 </div>
                                             </div>
                                         </div>

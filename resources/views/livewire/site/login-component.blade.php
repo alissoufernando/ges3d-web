@@ -72,14 +72,21 @@
                                         <h1>Renseignez vos informations</h1>
                                     </div>
                                 </div>
-                                <form>
+                                <form wire:submit.prevent='login'>
+
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="text" placeholder="Votre adresse mail">
-                                        <label for="email-field">Adresse</label>
+                                        <input class="input form-control" id="email-field" type="email" placeholder="Votre adresse mail" wire:model="email">
+                                        <label for="email-field">Adresse mail</label>
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="password" placeholder="mot de passe">
+                                        <input class="input form-control" id="email-field" type="password" placeholder="mot de passe" wire:model="password">
                                         <label for="email-field">Mot de passe</label>
+                                        @error('password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
                                         <p> J'ai pas de compte. <a class="text-primary" href="{{ route('site.register') }}">Inscription</a></p>

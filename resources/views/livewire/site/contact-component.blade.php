@@ -165,19 +165,32 @@
                                     <div class="main-heading c-dark">
                                         <h1>Écrire le message</h1>
                                     </div>
+                                    @if (Session::has('message'))
+                                    <div class="alert alert-success">{{Session::get('message')}}</div>
+                                    @endif
                                 </div>
-                                <form>
+                                <form wire:submit.prevent='saveContact'>
+
                                     <div class="form-floating">
-                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre nom">
+                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre nom" wire:model="nom">
                                         <label for="name-field">Nom</label>
+                                        @error('nom')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="text" placeholder="Votre adresse mail">
+                                        <input class="input form-control" id="email-field" type="email" placeholder="Votre adresse mail" wire:model="email">
                                         <label for="email-field">Adresse</label>
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="message-field" type="text" placeholder="Message">
+                                        <input class="input form-control" id="message-field" type="text" placeholder="Message" wire:model="message">
                                         <label for="message-field">Message</label>
+                                        @error('message')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <button type="submit" class="button button-2">
                                         <span class="button-inner">
@@ -207,14 +220,21 @@
                                     <div class="main-heading c-dark">
                                         <h1>Notre newsletter</h1>
                                     </div>
+                                    @if (Session::has('messageN'))
+                                    <div class="alert alert-success">{{Session::get('messageN')}}</div>
+                                    @endif
                                 </div>
                                 <div class="contact-form-icon">
                                     <i class="las la-envelope-open-text"></i>
                                 </div>
-                                <form>
+                                <form wire:submit.prevent='saveNewLetter'>
+
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field-1" type="text" placeholder="Votre adresse mail">
+                                        <input class="input form-control" id="email-field-1" type="email" placeholder="Votre adresse mail" wire:model="emailNewletter">
                                         <label for="email-field-1">Adresse mail</label>
+                                        @error('emailNewletter')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <button type="submit" class="button button-3">
                                         <span class="button-inner">

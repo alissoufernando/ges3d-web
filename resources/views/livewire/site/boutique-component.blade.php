@@ -51,7 +51,7 @@
     page header - end
     -->
 
-    <!--
+<!--
     blog list - start
     -->
     <div class="blog-section blog-section-1">
@@ -61,453 +61,54 @@
                     <!--
                     blog single - start
                     -->
+                    @foreach ($produits as $produit)
                     <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
                         <div class="blog-single blog-single-1">
                             <div class="blog-single-wrapper">
                                 <div class="blog-single-content">
                                     <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-1.jpg" alt="blog-image">
+                                        @if ($produit->path)
+                                        <img src="{{ asset('storage') }}/{{ $produit->path }}" alt="{{ $produit->nom }}">
+                                        @else
+                                        <img src="assets/site/images/bulbs.jpg" alt="{{ $produit->nom }}">
+
+                                        @endif
                                     </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
+                                    <a href="">
+                                        <h3>{{ $produit->nom }}</h3>
                                     </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
+                                    <div class="blog-single-details">
+                                        <div class="">
+                                            <span class="">{{$produit->promo_prix}} FCFA</span>
                                         </div>
                                         <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div> -->
-                                    <!-- <p>Behold creatur:e him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-2.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>Raving reviews about our latest algorithms.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
+                                        <div class="">
+                                            <del>{{$produit->prix }} FCFA</del>
+
                                         </div>
                                     </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
+                                    <button type="" class="button button-3">
+                                        <span class="button-inner">
+                                            <span class="button-content">
+                                                <span class="text">Ajouter</span>
+                                            </span>
+                                        </span>
+                                    </button>
+                                    {{-- <p>{{ $article->description }}</p> --}}
                                 </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-3.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-4.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-5.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>Raving reviews about our latest algorithms.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-6.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-7.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-8.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-9.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-10.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-11.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
-                    <!--
-                    blog single - start
-                    -->
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
-                        <div class="blog-single blog-single-1">
-                            <div class="blog-single-wrapper">
-                                <div class="blog-single-content">
-                                    <a href="blog-detail-1.html" class="figure">
-                                        <img src="assets/site/images/blog/blog-thumbnail-12.jpg" alt="blog-image">
-                                    </a>
-                                    <a href="blog-detail-1.html">
-                                        <h3>New features coming in 2020 to our app.</h3>
-                                    </a>
-                                    <!-- <div class="blog-single-details">
-                                        <div class="comments">
-                                            <i class="las la-comment-alt"></i>
-                                            12
-                                        </div>
-                                        <div class="separator"></div>
-                                        <div class="date">
-                                            <i class="las la-calendar"></i>
-                                            Dec 10, 2020
-                                        </div>
-                                    </div>
-                                    <p>Behold creature him whose own doesn't god seasons winged two won't bearing herein fowl fruitful they went there beginning ... </p> -->
-                                </div>
-                                <a href="blog-detail-1.html" class="circle">
-                                    <i class="las la-plus"></i>
-                                    <i class="las la-angle-right hover"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    blog single - end
-                    -->
+                    @endforeach
+
+
+
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <!--
-                        load more - start
-                        -->
-                        <a href="blog-1.html#" class="button button-3">
-                            <div class="button-inner">
-                                <div class="button-content">
-                                    <h4>Load More</h4>
-                                </div>
-                            </div>
-                        </a>
-                        <!--
-                        load more - end
-                        -->
-                    </div>
+                <div class="mt-4">
+                    {{$produits->links()}}
+
                 </div>
+
             </div>
         </div>
     </div>

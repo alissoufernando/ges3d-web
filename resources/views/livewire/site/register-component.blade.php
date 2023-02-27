@@ -72,18 +72,48 @@
                                         <h1>Renseignez vos informations</h1>
                                     </div>
                                 </div>
-                                <form>
+                                <form wire:submit.prevent='register'>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre nom">
+                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre nom" wire:model="nom">
                                         <label for="name-field">Votre nom</label>
+                                        @error('nom')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="text" placeholder="Votre adresse mail">
-                                        <label for="email-field">Adresse</label>
+                                        <input class="input form-control" id="name-field" type="text" placeholder="Votre prenoms" wire:model="prenoms">
+                                        <label for="name-field">Votre Prénom</label>
+                                        @error('prenoms')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="password" placeholder="mot de passe">
+                                        <input class="input form-control" id="email-field" type="email" placeholder="Votre adresse mail" wire:model="email">
+                                        <label for="email-field">Votre email</label>
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="input form-control" type="text" placeholder="Votre Ville" wire:model="ville">
+                                        <label for="email-field">Ville</label>
+                                        @error('ville')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="input form-control" type="tel" placeholder="Votre numero de telephone" wire:model="phone">
+                                        <label for="email-field">Téléphone</label>
+                                        @error('phone')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="input form-control" id="email-field" type="password" placeholder="mot de passe" wire:model="password">
                                         <label for="email-field">Mot de passe</label>
+                                        @error('password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-floating">
                                         <p> J'ai déjà compte. <a class="text-primary" href="{{ route('site.login') }}">Connexion</a></p>
