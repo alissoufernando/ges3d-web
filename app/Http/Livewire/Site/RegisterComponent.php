@@ -38,8 +38,9 @@ class RegisterComponent extends Component
         ]);
         $userRole = Role::where('name' ,'Utilisateur')->first();
         $user->roles()->attach($userRole);
-        $token = $user->createToken('auth-token')->plainTextToken;
-        // $user
+        $token = $user->createToken('user')->plainTextToken;
+
+        redirect()->route('login');
 
         return $user;
     }

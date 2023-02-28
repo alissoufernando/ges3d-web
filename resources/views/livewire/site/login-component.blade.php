@@ -18,7 +18,7 @@
                                     </li>
                                     <li>
                                         <i class="las la-angle-right"></i>
-                                        <a href="{{ route('site.login') }}" class="link-underline">
+                                        <a href="{{ route('login') }}" class="link-underline">
                                             <span>Connexion</span>
                                         </a>
                                     </li>

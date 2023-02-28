@@ -57,6 +57,9 @@
     <div class="blog-section blog-section-1">
         <div class="blog-section-wrapper">
             <div class="container">
+                @if (Session::has('message'))
+                <div class="alert alert-success">{{Session::get('message')}}</div>
+                @endif
                 <div class="row gx-5">
                     <!--
                     blog single - start
@@ -87,13 +90,13 @@
 
                                         </div>
                                     </div>
-                                    <button type="" class="button button-3">
+                                    <a href="#" wire:click.prevent ="addToCart({{$produit->id}})" class="button button-3">
                                         <span class="button-inner">
                                             <span class="button-content">
                                                 <span class="text">Ajouter</span>
                                             </span>
                                         </span>
-                                    </button>
+                                    </a>
                                     {{-- <p>{{ $article->description }}</p> --}}
                                 </div>
                             </div>

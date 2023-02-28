@@ -43,8 +43,7 @@
                                 $i = 1;
                             @endphp
                             @foreach ($agents as $agent)
-                            @foreach ($agent->roles as $role)
-                            @if ($role->name == "Agent")
+                            @if ($agent->hasRole('Agent'))
                             <tr>
                                 <td>
                                     {{ $i++ }}
@@ -65,7 +64,7 @@
                                     {{ $agent->phone }}
                                 </td>
                                 <td>
-                                    {{ $role->name }}
+                                   kk
                                 </td>
                                 <td>
                                     <ul class="d-flex justify-content-betweens">
@@ -88,9 +87,6 @@
                                 </td>
                             </tr>
                             @endif
-
-                            @endforeach
-
                             @endforeach
                         </tbody>
                     </table>

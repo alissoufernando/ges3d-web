@@ -6,6 +6,7 @@ namespace App\Models;
 use App\Models\Mail;
 use App\Models\Alert;
 use App\Models\Produit;
+use App\Models\cartItem;
 use App\Models\Commande;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -28,6 +29,7 @@ class User extends Authenticatable
         'phone',
         'ville',
         'email',
+        'total_waste',
         'password',
     ];
 
@@ -50,9 +52,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function commandes()
+    public function orders()
     {
-        return $this->belongsToMany(Commande::class);
+        return $this->hasMany(Order::class);
+    }
+
+    public function cartItems()
+    {
+        return $this->hasMany(cartItem::class);
     }
 
     public function alerts()

@@ -116,7 +116,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <p> J'ai déjà compte. <a class="text-primary" href="{{ route('site.login') }}">Connexion</a></p>
+                                        <p> J'ai déjà compte. <a class="text-primary" href="{{ route('login') }}">Connexion</a></p>
                                     </div>
                                     <button type="submit" class="button button-2">
                                         <span class="button-inner">

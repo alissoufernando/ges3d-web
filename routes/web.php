@@ -17,6 +17,7 @@ use App\Http\Livewire\Dashboard\Utilisateurs\ListeUsersComponent;
 use App\Http\Livewire\Site\AboutComponent;
 use App\Http\Livewire\Site\AlertComponent;
 use App\Http\Livewire\Site\BoutiqueComponent;
+use App\Http\Livewire\Site\CartItemComponent;
 use App\Http\Livewire\Site\ContactComponent;
 use App\Http\Livewire\Site\LoginComponent;
 use App\Http\Livewire\Site\RegisterComponent;
@@ -34,27 +35,28 @@ use App\Http\Livewire\Site\SensiblisationComponent;
 */
 
 Route::get('/', WelcomeComponent::class)->name('welcome');
-Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
+Route::get('/dashboard', DashboardComponent::class)->name('dashboard')->middleware('auth:sanctum');
 
-Route::get('/users', ListeUsersComponent::class)->name('dashboard.liste-users');
-
-
-Route::get('/agents', ListeAgentsComponent::class)->name('dashboard.liste-agents');
+Route::get('/users', ListeUsersComponent::class)->name('dashboard.liste-users')->middleware('auth:sanctum');
 
 
-Route::get('/alerts', ListeAlertComponent::class)->name('dashboard.liste-alerts');
-
-Route::get('/articles', ListeArticleComponent::class)->name('dashboard.liste-articles');
+Route::get('/agents', ListeAgentsComponent::class)->name('dashboard.liste-agents')->middleware('auth:sanctum');
 
 
-Route::get('/products', ListeProductComponent::class)->name('dashboard.liste-product');
+Route::get('/alerts', ListeAlertComponent::class)->name('dashboard.liste-alerts')->middleware('auth:sanctum');
+
+Route::get('/articles', ListeArticleComponent::class)->name('dashboard.liste-articles')->middleware('auth:sanctum');
+
+
+Route::get('/products', ListeProductComponent::class)->name('dashboard.liste-product')->middleware('auth:sanctum');
 
 
 // liste des routes pour le site
 
 Route::get('/sensibilisation', SensiblisationComponent::class)->name('site.sensibilisation');
-Route::get('/login', LoginComponent::class)->name('site.login');
+Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('site.register');
+Route::get('/panier', CartItemComponent::class)->name('site.panier')->middleware('auth:sanctum');
 Route::get('/boutique', BoutiqueComponent::class)->name('site.boutique');
 Route::get('/about', AboutComponent::class)->name('site.about');
 Route::get('/contact', ContactComponent::class)->name('site.contact');

@@ -25,7 +25,8 @@ class AuthController extends Controller
         if(Auth::attempt(['email' => $input['email'], 'password' => $input['password']]))
         {
             $data = Auth::user();
-            $token = $data->createToken('user');
+            // $token = $data->createToken('user');
+            $token = $data->createToken('user')->plainTextToken;
             return response()->json(['token' => $token]);
         }
     }

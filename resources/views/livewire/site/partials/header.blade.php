@@ -60,12 +60,37 @@
                                 <!-- <i class="fab fa-user-circle-o"></i> -->
                             </a>
                         </li>
+                        @if (Auth::guest())
                         <li>
-                            <a href="{{ route('site.login') }}" class="link-underline link-underline-1">
+                            <a href="{{ route('login') }}" class="link-underline link-underline-1">
                                 <span>Connexion</span>
                                 <!-- <i class="fab fa-user-circle-o"></i> -->
                             </a>
                         </li>
+                        @else
+                        {{-- @if ($cartItems->count() > 0)
+                        <li>
+                            <a href="{{ route('site.panier') }}" class="link-underline link-underline-1">
+                                <span>Panier
+                                    <span class="badge badge-pill badge-info">{{$cartItems->count()}}</span>
+                                </span>
+                            </a>
+                        </li>
+                        @endif --}}
+
+
+                        @if (auth()->user()->hasRole('Administrateur'))
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="link-underline link-underline-1">
+                                <span>Dashboard</span>
+                                <!-- <i class="fab fa-user-circle-o"></i> -->
+                            </a>
+                        </li>
+                        @endif
+                        @endif
+
+
+
                     </ul>
                     <div class="social">
                         <h6>Follow</h6>

@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Site;
 
 use App\Models\Alert;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 class AlertComponent extends Component
 {
+    use WithFileUploads;
     public $path;
     public $user_id;
     public $geo_location;
@@ -27,7 +29,6 @@ class AlertComponent extends Component
     public function saveAlert()
     {
         $this->validate([
-            'user_id' =>  'required',
             'path' =>  'required',
             'geo_location' =>  'required',
             'message' => 'required',
@@ -58,6 +59,10 @@ class AlertComponent extends Component
     }
     public function render()
     {
+        if(!Auth::check())
+        {
+            return redirect()->route('login');
+        }
         return view('livewire.site.alert-component');
     }
 }

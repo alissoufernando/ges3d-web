@@ -31,8 +31,8 @@ class LoginComponent extends Component
         {
             $data = Auth::user();
             $token = $data->createToken('user')->plainTextToken;
-            dd($data);
-            return $token;
+            // dd(Auth::user());
+            redirect()->route('welcome');
         }
 
 

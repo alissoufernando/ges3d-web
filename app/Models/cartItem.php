@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use App\Models\Produit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Commande extends Model
+class cartItem extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'description',
-        'total_waste',
-        'statut',
+        'user_id',
+        'produit_id',
+        'quantite',
+        'isDelete'
     ];
 
     public function user()
@@ -21,8 +21,11 @@ class Commande extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Produits()
+    public function produit()
     {
-        return $this->belongsToMany(Produit::class);
+        return $this->belongsTo(Produit::class);
     }
+
+
+
 }
