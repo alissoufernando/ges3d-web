@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('total_waste')->default(100000);
             $table->string('ville');
+            $table->foreignId('ville_id')->nullable()->constrained('villes')->onUpdate('cascade')->onDelete('cascade');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

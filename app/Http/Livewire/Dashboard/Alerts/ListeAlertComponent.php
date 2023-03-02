@@ -48,12 +48,11 @@ class ListeAlertComponent extends Component
     }
     public function getElementById($id)
     {
-
-
-            $this->alert_id = $id;
-            $MyAlert = Alert::findOrFail($this->alert_id);
-            $this->agent_id = $MyAlert->agent_id;
+        $this->alert_id = $id;
+        // $MyAlert = Alert::findOrFail($this->alert_id);
+        // $this->agent_id = $MyAlert->agent_id;
     }
+
     public function deleteAlert($id)
     {
         $MyAlert = Alert::findOrFail($id);

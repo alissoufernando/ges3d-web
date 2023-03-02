@@ -9,6 +9,7 @@ use Database\Seeders\RoleTableSeeder;
 use Database\Seeders\UserTableSeeder;
 use Database\Seeders\AgentTableSeeder;
 use Database\Seeders\AlertTableSeeder;
+use Database\Seeders\VilleTableSeeder;
 use Database\Seeders\ArticleTableSeeder;
 use Database\Seeders\ProduitTableSeeder;
 use Database\Seeders\NewLetterTableSeeder;
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleTableSeeder::class,
             PermissionTableSeeder::class,
+            VilleTableSeeder::class,
             UserTableSeeder::class,
             AgentTableSeeder::class,
             ProduitTableSeeder::class,

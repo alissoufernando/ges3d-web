@@ -68,9 +68,9 @@
                                     {{ $article->decription }}
                                 </td>
                                 <td>
-                                  
+
                                     <div class="dropdown">
-                                        <a class="btn btn-secondary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="btn btn-primary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Actions
                                         </a>
 

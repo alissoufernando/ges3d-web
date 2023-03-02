@@ -64,27 +64,28 @@
                                     {{ $agent->phone }}
                                 </td>
                                 <td>
+                                    @if ($agent->ville_id)
+                                    {{ $agent->villeAssigner->name }}
+
+                                    @else
+                                        pas de ville Assigner
+                                    @endif
+                                </td>
+                                <td>
                                     {{implode(',', $agent->roles()->pluck('name')->toArray())}}
                                    {{-- {{  $agent->roles->pluck('name') }} --}}
                                 </td>
                                 <td>
-                                    <ul class="d-flex justify-content-betweens">
+                                    <div class="dropdown">
+                                        <a class="btn btn-primary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Actions
+                                        </a>
 
-                                        <li>
-                                            <a type="button" data-container="body" data-toggle="popover" data-placement="top" title="Modification" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" wire:click.prevent='getElementById({{$agent['id']}})'>
-                                                <img src="{{ asset('assets/dash/images/icon/call-2.svg') }}" alt="call-2">
-
-                                            </a>
-
-                                        </li>
-
-                                        <li>
-                                            <a type="button" data-container="body" data-toggle="popover" data-placement="top" title="Supprimer" href="#" wire:click.prevent="deleteUser({{$agent['id']}})">
-                                                <img src="{{ asset('assets/dash/images/icon/trash-2.svg') }}" alt="trash-2">
-                                            </a>
-
-                                        </li>
-                                    </ul>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" wire:click.prevent='getElementById({{$agent['id']}})'>Assigner une ville</a></li>
+                                            <li><a class="dropdown-item"  href="#" wire:click.prevent="deleteAgent({{$agent['id']}})">Supprimer</a></li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                             @endif
@@ -106,6 +107,8 @@
 
         <!-- End Footer Area -->
     </main>
+    @include('livewire.dashboard.agents.modalAssignerVille')
+
 </div>
 @section('scripts')
 <script src="{{ asset('assets/dash/js/sweetalert2.all.min.js') }}"></script>

@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('path')->nullable();
-            $table->string('geo_location');
+            $table->foreignId('ville_id')->nullable()->constrained('villes')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('longitude');
+            $table->string('latitude');
             $table->mediumText('message');
             $table->string('statut')->default(0);
             $table->string('Valide')->default(0);

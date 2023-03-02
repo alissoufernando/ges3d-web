@@ -49,17 +49,21 @@
                                 <span>Boutique</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('site.contact') }}" class="link-underline link-underline-1">
-                                <span>Contactez-nous</span>
-                            </a>
-                        </li>
+
                         <li>
                             <a href="{{ route('site.alert') }}" class="link-underline link-underline-1">
                                 <span>Alertez-nous</span>
                                 <!-- <i class="fab fa-user-circle-o"></i> -->
                             </a>
                         </li>
+                        @if (auth()->user()->hasRole('Administrateur'))
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="link-underline link-underline-1">
+                                <span>Dashboard</span>
+                                <!-- <i class="fab fa-user-circle-o"></i> -->
+                            </a>
+                        </li>
+                        @endif
                         @if (Auth::guest())
                         <li>
                             <a href="{{ route('login') }}" class="link-underline link-underline-1">
@@ -68,22 +72,20 @@
                             </a>
                         </li>
                         @else
-                        {{-- @if ($cartItems->count() > 0)
+                        @if (auth()->user()->cartItems->count() > 0)
                         <li>
                             <a href="{{ route('site.panier') }}" class="link-underline link-underline-1">
-                                <span>Panier
-                                    <span class="badge badge-pill badge-info">{{$cartItems->count()}}</span>
+                                <span class=""> <img src="{{ asset('assets/site/images/cart.png') }}" alt="" width="40" height="40">
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                        {{auth()->user()->cartItems->count()}}
+                                      </span>
                                 </span>
                             </a>
                         </li>
-                        @endif --}}
-
-
-                        @if (auth()->user()->hasRole('Administrateur'))
+                        @else
                         <li>
-                            <a href="{{ route('dashboard') }}" class="link-underline link-underline-1">
-                                <span>Dashboard</span>
-                                <!-- <i class="fab fa-user-circle-o"></i> -->
+                            <a href="{{ route('site.contact') }}" class="link-underline link-underline-1">
+                                <span>Contactez-nous</span>
                             </a>
                         </li>
                         @endif

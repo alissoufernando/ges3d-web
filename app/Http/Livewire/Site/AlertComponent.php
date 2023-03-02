@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Site;
 
 use App\Models\Alert;
+use App\Models\Ville;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
@@ -12,11 +13,13 @@ class AlertComponent extends Component
     use WithFileUploads;
     public $path;
     public $user_id;
-    public $geo_location;
+    public $ville_id;
     public $message;
     public $article_id;
     public $array_full=[];
 
+    public $latitude;
+    public $longitude;
 
 
     public function resetInputFields()
@@ -24,7 +27,7 @@ class AlertComponent extends Component
         // Clean errors if were visible before
         $this->resetErrorBag();
         $this->resetValidation();
-        $this->reset(['path', 'geo_location', 'user_id','message']);
+        $this->reset(['path', 'ville_id', 'user_id','message','latitude','longitude']);
 
     }
 
@@ -33,8 +36,10 @@ class AlertComponent extends Component
     {
         $this->validate([
             'path' =>  'required',
-            'geo_location' =>  'required',
+            'ville_id' =>  'required',
             'message' => 'required',
+            'longitude' => 'required',
+            'latitude' => 'required',
             ]);
         // dd($this->path);
 
@@ -46,7 +51,9 @@ class AlertComponent extends Component
         // dd($this->array_full);
         $MyAlert->path = collect($this->array_full)->implode(',');
         $MyAlert->user_id = Auth::user()->id;
-        $MyAlert->geo_location = $this->geo_location;
+        $MyAlert->longitude = $this->longitude;
+        $MyAlert->latitude = $this->latitude;
+        $MyAlert->ville_id = $this->ville_id;
         $MyAlert->message = $this->message;
         $MyAlert->save();
 
@@ -83,6 +90,10 @@ class AlertComponent extends Component
         {
             return redirect()->route('login');
         }
-        return view('livewire.site.alert-component');
+        $villes = Ville::where('isDelete', 0)->orderBy('created_at','DESC')->get();
+
+        return view('livewire.site.alert-component',[
+            'villes' => $villes,
+        ]);
     }
 }

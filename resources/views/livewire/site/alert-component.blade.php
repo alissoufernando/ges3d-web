@@ -78,9 +78,13 @@
                                 <form wire:submit.prevent='saveAlert'>
 
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="text" placeholder="Votre adresse" wire:model="geo_location">
-                                        <label for="email-field">Géolocation</label>
-                                        @error('geo_location')
+                                        <select name="" id="" class="input form-control" wire:model="ville_id">
+                                            <option value="">Choisir une ville</option>
+                                            @foreach ($villes as $ville)
+                                            <option value="{{ $ville->id }}">{{ $ville->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('ville_id')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -104,6 +108,26 @@
 
                                     </div>
 
+                                    <a class="btn btn-outline-info btn-lg btnx-block mt-5 pt-3 pb-3" onclick="getLocation()">Ma position Actuelle</a>
+                                    <div class="form-floating">
+                                        {{-- <button class="btn btn-info" onclick="getLocation()">Ma position Actuelle</button> --}}
+                                        <p id="demo"></p>
+                                        @if ($this->latitude)
+                                        <div class="form-floating">
+                                            <input class="input form-control" type="text" value="{{ $this->latitude }}" disabled>
+                                            <label for="message-field">latitude</label>
+                                        </div>
+
+                                        @endif
+                                        @if ($this->longitude)
+                                        <div class="form-floating">
+                                            <input class="input form-control" type="text" value="{{ $this->longitude }}" disabled>
+                                            <label for="message-field">longitude</label>
+                                        </div>
+
+                                        @endif
+                                    </div>
+
 
 
 
@@ -115,6 +139,7 @@
                                         </span>
                                     </button>
                                 </form>
+
 
 
                             </div>
@@ -132,8 +157,27 @@
     contact form section - end
     -->
 </div>
+
 @section('custom-scripts')
 <script>
+    var x = document.getElementById("demo");
 
-</script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+
+        @this.latitude = position.coords.latitude ;
+        @this.longitude = position.coords.longitude;
+
+    //   x.innerHTML = "Latitude: " + position.coords.latitude +
+    //   "<br>Longitude: " + position.coords.longitude;
+    }
+    </script>
+
 @endsection

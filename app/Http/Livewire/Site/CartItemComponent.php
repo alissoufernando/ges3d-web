@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Site;
 
 use App\Models\User;
+use App\Models\Order;
 use Livewire\Component;
 use App\Models\cartItem;
 use Illuminate\Support\Facades\Auth;
@@ -35,21 +36,26 @@ class CartItemComponent extends Component
             $order = $user->orders()->create([
                 'total_waste' => $totalAmount,
                 'user_id' => $user->id,
-                'status' => 'pending',
+                'statut' => 'pending',
             ]);
 
+
+
             foreach ($cartItems as $cartItem) {
-                $product = $cartItem->product;
+                $produit = $cartItem->produit;
+                $order = Order::where('user_id', $user->id)->firstOrFail();
                 $order->orderItems()->create([
-                    'product_id' => $product->id,
+                    'produit_id' => $produit->id,
+                    'order_id' => $order->id,
                     'quantite' => $cartItem->quantite,
-                    'prix' => $product->promo_prix,
+                    'prix' => $produit->promo_prix,
                 ]);
+                // dd('ok');
             }
 
             $user->cartItems()->delete();
 
-            session()->flash('message', 'Product removed from cart successfully!');
+            session()->flash('message', 'Votre commande a ete bien  effectuée');
             back();
 
         }else{

@@ -9,7 +9,7 @@
                     <div class="row d-lg-flex align-items-lg-end">
                         <div class="col-lg-6">
                             <div class="page-header-content c-white">
-                                <h1>Sensibilisation</h1>
+                                <h1>Panier</h1>
                                 <ul>
                                     <li>
                                         <a href="{{ route('welcome') }}" class="link-underline">

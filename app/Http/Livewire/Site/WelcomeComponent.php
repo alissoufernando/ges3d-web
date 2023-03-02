@@ -68,18 +68,20 @@ class WelcomeComponent extends Component
     {
         $articles = Article::where('isDelete', 0)->orderBy('created_at','DESC')->limit(3)->get();
 
-        // if(!Auth::check())
-        // {
-        //     $cartItems = null;
-        // }else{
-        //     $user = Auth::user();
-        //     $cartItems = cartItem::where('user_id', $user->id)->get();
-        // }
+        if(!Auth::check())
+        {
+            $cartItems = null;
+        }else{
+            $user = Auth::user();
+            // dd($user);
+            $cartItems = cartItem::where('user_id', $user->id)->get();
+        }
+            // dd(auth()->user()->cartItems->count());
 
 
         return view('livewire.site.welcome-component',[
             'articles' => $articles,
-            // 'cartItems' => $cartItems,
+            'cartItems' => $cartItems,
         ]);
     }
 }

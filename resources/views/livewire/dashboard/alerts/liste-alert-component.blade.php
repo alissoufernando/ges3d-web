@@ -53,7 +53,7 @@
 
 
                                 <td>
-                                    {{ $alert->geo_location }}
+                                    {{ $alert->ville->name }}
                                 </td>
                                 <td>
                                     {{ $alert->message }}
@@ -68,15 +68,15 @@
                                 </td>
                                 <td>
                                     <div class="dropdown">
-                                        <a class="btn btn-secondary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="btn btn-primary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Actions
                                         </a>
 
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" wire:click.prevent='getElementById({{$alert['id']}})'>Assigner un agent</a></li>
-                                            <li><a class="dropdown-item"  href="{{ route('dashboard.datail-alerts', ['id' => $alert->id]) }}">Detail</a></li>
-                                            <li><a class="dropdown-item"  href="#" wire:click.prevent="deleteAlert({{$alert['id']}})">Supprimer</a></li>
-                                            <li><a class="dropdown-item"  href="#" wire:click.prevent="valideAlert({{$alert['id']}})">Valider</a></li>
+                                            <li><a class="dropdown-item"  href="{{ route('dashboard.datail-alerts', ['id' => $alert->id]) }}">Details</a></li>
+                                            <li><a class="dropdown-item"  wire:click.prevent="deleteAlert({{$alert['id']}})">Supprimer</a></li>
+                                            <li><a class="dropdown-item"  wire:click.prevent="valideAlert({{$alert['id']}})">Valider</a></li>
                                         </ul>
                                     </div>
 

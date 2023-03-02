@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Mail;
 use App\Models\Alert;
+use App\Models\Ville;
 use App\Models\Produit;
 use App\Models\cartItem;
 use App\Models\Commande;
@@ -28,6 +29,7 @@ class User extends Authenticatable
         'prenoms',
         'phone',
         'ville',
+        'ville_id',
         'email',
         'total_waste',
         'password',
@@ -60,6 +62,11 @@ class User extends Authenticatable
     public function cartItems()
     {
         return $this->hasMany(cartItem::class);
+    }
+
+    public function villeAssigner()
+    {
+        return $this->belongsTo(Ville::class, 'ville_id');
     }
 
 
