@@ -26,11 +26,13 @@
 
             <div class="container-fluid">
                 <div class="table-responsive" data-simplebar>
-                    <div class="others-title">
+                    <div class="others-title d-flex justify-content-between align-items-center">
                         <h3>Listes des produits</h3>
-                        <a type="button" class="btn  btn-info btn-sm float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                            Ajouter
-                        </a>
+                        <div class="add-export text-end">
+                            <a type="button" class="btn  btn-info btn-sm float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                                Ajouter
+                            </a>
+                        </div>
                     </div>
                     @if (Session::has('message'))
                     <div class="alert alert-success">{{Session::get('message')}}</div>
@@ -70,23 +72,16 @@
                                     {{ $produit->coute_decription }}
                                 </td>
                                 <td>
-                                    <ul class="d-flex justify-content-betweens">
+                                    <div class="dropdown">
+                                        <a class="btn btn-secondary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Actions
+                                        </a>
 
-                                        <li>
-                                            <a type="button" data-container="body" data-toggle="popover" data-placement="top" title="Modification" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" wire:click.prevent='getElementById({{$produit['id']}})'>
-                                                <img src="{{ asset('assets/dash/images/icon/call-2.svg') }}" alt="call-2">
-
-                                            </a>
-
-                                        </li>
-
-                                        <li>
-                                            <a type="button" data-container="body" data-toggle="popover" data-placement="top" title="Supprimer" href="#" wire:click.prevent="deleteProduit({{$produit['id']}})">
-                                                <img src="{{ asset('assets/dash/images/icon/trash-2.svg') }}" alt="trash-2">
-                                            </a>
-
-                                        </li>
-                                    </ul>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" wire:click.prevent='getElementById({{$produit['id']}})'>Modification</a></li>
+                                            <li><a class="dropdown-item"  href="#" wire:click.prevent="deleteProduit({{$produit['id']}})">Supprimer</a></li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

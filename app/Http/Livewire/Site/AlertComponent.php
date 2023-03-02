@@ -15,6 +15,9 @@ class AlertComponent extends Component
     public $geo_location;
     public $message;
     public $article_id;
+    public $array_full=[];
+
+
 
     public function resetInputFields()
     {
@@ -38,13 +41,10 @@ class AlertComponent extends Component
 
         $MyAlert = new Alert();
 
-        $filenameImage = time() . '.' . $this->path->extension();
-        $pathImage = $this->path->storeAs(
-            'ImageAlert',
-            $filenameImage,
-            'public'
-        );
-        $MyAlert->path = $pathImage;
+        $this->uploadOne();
+        // array_push($this->array_full,$filenamePDF);
+        // dd($this->array_full);
+        $MyAlert->path = collect($this->array_full)->implode(',');
         $MyAlert->user_id = Auth::user()->id;
         $MyAlert->geo_location = $this->geo_location;
         $MyAlert->message = $this->message;
@@ -56,6 +56,26 @@ class AlertComponent extends Component
        $this->resetInputFields();
        back();
 
+    }
+    public function uploadOne()
+    {
+        if (!empty($this->path)) {
+            $array_full = array();
+            foreach ($this->path as $full){
+                $images = $full;
+                $imageName = uniqid() . '.' . $images->extension();
+                $images->storeAs(
+                    'ImageAlert',
+                    $imageName,
+                    'public'
+                );
+
+                array_push($array_full, $imageName);
+
+            }
+            $this->array_full=$array_full;
+
+        }
     }
     public function render()
     {

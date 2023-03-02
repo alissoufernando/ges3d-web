@@ -48,12 +48,10 @@
                                     {{ $i++ }}
                                 </td>
                                 <td>
-                                    {{ $alert->user_id }}
+                                    {{ $alert->user->nom }} {{ $alert->user->prenoms }}
                                 </td>
 
-                                <td>
-                                    {{ $alert->path }}
-                                </td>
+
                                 <td>
                                     {{ $alert->geo_location }}
                                 </td>
@@ -61,26 +59,27 @@
                                     {{ $alert->message }}
                                 </td>
                                 <td>
-                                    {{ $alert->agent_id }}
+                                    @if ($alert->agent_id)
+                                    {{ $alert->agent->nom }} {{ $alert->agent->prenoms }}
+
+                                    @else
+                                    pas d'agent assigné
+                                    @endif
                                 </td>
                                 <td>
-                                    <ul class="d-flex justify-content-betweens">
+                                    <div class="dropdown">
+                                        <a class="btn btn-secondary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Actions
+                                        </a>
 
-                                        <li>
-                                            <a type="button" data-container="body" data-toggle="popover" data-placement="top" title="Modification" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" wire:click.prevent='getElementById({{$alert['id']}})'>
-                                                <img src="{{ asset('assets/dash/images/icon/call-2.svg') }}" alt="call-2">
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" wire:click.prevent='getElementById({{$alert['id']}})'>Assigner un agent</a></li>
+                                            <li><a class="dropdown-item"  href="{{ route('dashboard.datail-alerts', ['id' => $alert->id]) }}">Detail</a></li>
+                                            <li><a class="dropdown-item"  href="#" wire:click.prevent="deleteAlert({{$alert['id']}})">Supprimer</a></li>
+                                            <li><a class="dropdown-item"  href="#" wire:click.prevent="valideAlert({{$alert['id']}})">Valider</a></li>
+                                        </ul>
+                                    </div>
 
-                                            </a>
-
-                                        </li>
-
-                                        <li>
-                                            <a type="button" data-container="body" data-toggle="popover" data-placement="top" title="Supprimer" href="#" wire:click.prevent="deleteAlert({{$alert['id']}})">
-                                                <img src="{{ asset('assets/dash/images/icon/trash-2.svg') }}" alt="trash-2">
-                                            </a>
-
-                                        </li>
-                                    </ul>
                                 </td>
                             </tr>
                             @endforeach
@@ -102,6 +101,8 @@
 
         <!-- End Footer Area -->
     </main>
+    @include('livewire.dashboard.alerts.modal')
+
 </div>
 @section('scripts')
 <script src="{{ asset('assets/dash/js/sweetalert2.all.min.js') }}"></script>

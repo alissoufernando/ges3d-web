@@ -3,6 +3,7 @@
 use App\Http\Livewire\Dashboard\Agents\AddAgentsComponent;
 use App\Http\Livewire\Dashboard\Agents\EditAgentsComponent;
 use App\Http\Livewire\Dashboard\Agents\ListeAgentsComponent;
+use App\Http\Livewire\Dashboard\Alerts\AlertDetailComponent;
 use App\Http\Livewire\Dashboard\Alerts\ListeAlertComponent;
 use App\Http\Livewire\Dashboard\Articles\AddArticleComponent;
 use App\Http\Livewire\Dashboard\Articles\EditArticleComponent;
@@ -44,6 +45,7 @@ Route::get('/agents', ListeAgentsComponent::class)->name('dashboard.liste-agents
 
 
 Route::get('/alerts', ListeAlertComponent::class)->name('dashboard.liste-alerts')->middleware('auth:sanctum');
+Route::get('/alerts/{id}', AlertDetailComponent::class)->name('dashboard.datail-alerts')->middleware('auth:sanctum');
 
 Route::get('/articles', ListeArticleComponent::class)->name('dashboard.liste-articles')->middleware('auth:sanctum');
 

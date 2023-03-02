@@ -4,7 +4,7 @@
             <li class="{{ Route::currentRouteName()== 'dashboard' ? 'mm-active' : '' }}">
                 <a href="{{ route('dashboard') }}" class="box-style d-flex align-items-center">
                     <div class="icon">
-                        <img src="assets/dash/images/icon/element.svg" alt="element">
+                        <img src="{{ asset('assets/dash/images/icon/element.svg') }}" alt="element">
                     </div>
                     <span class="menu-title">Dashboards</span>
                 </a>
@@ -12,7 +12,7 @@
             <li class="{{ Route::currentRouteName()== 'welcome' ? 'mm-active' : '' }}">
                 <a href="{{ route('welcome') }}" class="box-style d-flex align-items-center">
                     <div class="icon">
-                        <img src="assets/dash/images/icon/calendar.svg" alt="calendar">
+                        <img src="{{ asset('assets/dash/images/icon/email.svg') }}" alt="calendar">
                     </div>
                     <span class="menu-title">Site</span>
                 </a>
@@ -20,7 +20,7 @@
             <li class="{{ Route::currentRouteName()== 'dashboard.liste-users' ? 'mm-active' : '' }}">
                 <a href="{{ route('dashboard.liste-users') }}" class="box-style d-flex align-items-center">
                     <div class="icon">
-                        <img src="assets/dash/images/icon/profile-2user.svg" alt="profile-2user">
+                        <img src="{{ asset('assets/dash/images/icon/profile-2user.svg') }}" alt="profile-2user">
                     </div>
                     <span class="menu-title">Utilisateurs</span>
                 </a>
@@ -28,7 +28,7 @@
             <li class="{{ Route::currentRouteName()== 'dashboard.liste-articles' ? 'mm-active' : '' }}">
                 <a href="{{ route('dashboard.liste-articles') }}" class="box-style d-flex align-items-center">
                     <div class="icon">
-                        <img src="assets/dash/images/icon/profile-2user.svg" alt="profile-2user">
+                        <img src="{{ asset('assets/dash/images/icon/fatrows.svg') }}" alt="profile-2user">
                     </div>
                     <span class="menu-title">Articles</span>
                 </a>
@@ -36,7 +36,7 @@
             <li class="{{ Route::currentRouteName()== 'dashboard.liste-agents' ? 'mm-active' : '' }}">
                 <a href="{{ route('dashboard.liste-agents') }}" class="box-style d-flex align-items-center">
                     <div class="icon">
-                        <img src="assets/dash/images/icon/profile-2user.svg" alt="profile-2user">
+                        <img src="{{ asset('assets/dash/images/icon/user-octagon.svg') }}" alt="profile-2user">
                     </div>
                     <span class="menu-title">Agents</span>
                 </a>
@@ -44,7 +44,7 @@
             <li class="{{ Route::currentRouteName()== 'dashboard.liste-alerts' ? 'mm-active' : '' }}">
                 <a href="{{ route('dashboard.liste-alerts') }}" class="box-style d-flex align-items-center">
                     <div class="icon">
-                        <img src="assets/dash/images/icon/profile-2user.svg" alt="profile-2user">
+                        <img src="{{ asset('assets/dash/images/icon/shapes.svg') }}" alt="profile-2user">
                     </div>
                     <span class="menu-title">alerts</span>
                 </a>
@@ -52,7 +52,7 @@
             <li class="{{ Route::currentRouteName()== 'dashboard.liste-product' ? 'mm-active' : '' }}">
                 <a href="{{ route('dashboard.liste-product') }}" class="box-style d-flex align-items-center">
                     <div class="icon">
-                        <img src="assets/dash/images/icon/profile-2user.svg" alt="profile-2user">
+                        <img src="{{ asset('assets/dash/images/icon/layer.svg') }}" alt="profile-2user">
                     </div>
                     <span class="menu-title">Products</span>
                 </a>

@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Dashboard;
 
 use App\Models\User;
 use App\Models\Alert;
+use App\Models\Order;
 use App\Models\Article;
 use App\Models\Produit;
 use Livewire\Component;
-use App\Models\Commande;
 use App\Models\NewLetter;
 
 class DashboardComponent extends Component
@@ -19,7 +19,7 @@ class DashboardComponent extends Component
         $articles = Article::all();
         $produits = Produit::all();
         $alerts = Alert::all();
-        $commandes = Commande::all();
+        $commandes = Order::all();
         $newletters = NewLetter::all();
         return view('livewire.dashboard.dashboard-component',[
             'users' => $users,

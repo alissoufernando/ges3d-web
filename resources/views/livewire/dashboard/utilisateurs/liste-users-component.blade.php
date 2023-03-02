@@ -63,10 +63,8 @@
                                     {{ $user->phone }}
                                 </td>
                                 <td>
-                                    @foreach ($user->roles as $role)
-                                    {{ $role->name }}
+                                    {{implode(',', $user->roles()->pluck('name')->toArray())}}
 
-                                    @endforeach
                                 </td>
                                 <td>
                                     <ul class="d-flex justify-content-betweens">

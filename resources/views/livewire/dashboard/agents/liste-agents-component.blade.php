@@ -64,7 +64,8 @@
                                     {{ $agent->phone }}
                                 </td>
                                 <td>
-                                   kk
+                                    {{implode(',', $agent->roles()->pluck('name')->toArray())}}
+                                   {{-- {{  $agent->roles->pluck('name') }} --}}
                                 </td>
                                 <td>
                                     <ul class="d-flex justify-content-betweens">
@@ -91,7 +92,7 @@
                         </tbody>
                     </table>
                     <div class="mt-4">
-                        {{$agents->links()}}
+                        {{-- {{$agents->links()}} --}}
                     </div>
                 </div>
             </div>

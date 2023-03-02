@@ -12,7 +12,7 @@ class ListeAgentsComponent extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-        $agents = User::where('isDelete', 0)->orderBy('created_at','DESC')->paginate(5);
+        $agents = User::where('isDelete', 0)->orderBy('created_at','DESC')->get();
 
         return view('livewire.dashboard.agents.liste-agents-component',[
             'agents' => $agents,

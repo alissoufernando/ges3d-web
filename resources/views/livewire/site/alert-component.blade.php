@@ -85,7 +85,12 @@
                                         @enderror
                                     </div>
                                     <div class="form-floating">
-                                        <input class="input form-control" id="email-field" type="file" placeholder="Votre photo" wire:model="path">
+                                        <input class="input form-control" id="email-field" type="file" placeholder="Votre photo" accept=".jpg, .png, image/jpeg, image/png" wire:model="path" multiple>
+                                        @if ($path)
+                                        @foreach ($path as $images)
+                                        <img src="{{$images->temporaryUrl()}}" class="px-2" width="100">
+                                        @endforeach
+                                        @endif
                                         @error('path')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -100,6 +105,8 @@
                                     </div>
 
 
+
+
                                     <button type="submit" class="button button-2">
                                         <span class="button-inner">
                                             <span class="button-content">
@@ -108,6 +115,8 @@
                                         </span>
                                     </button>
                                 </form>
+
+
                             </div>
                         </div>
                         <!--
@@ -123,3 +132,8 @@
     contact form section - end
     -->
 </div>
+@section('custom-scripts')
+<script>
+
+</script>
+@endsection

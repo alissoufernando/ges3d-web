@@ -16,7 +16,7 @@
                     </div>
 
                     <form class="search-bar d-flex">
-                        <img src="assets/dash/images/icon/search-normal.svg" alt="search-normal">
+                        <img src="{{ asset('assets/dash/images/icon/search-normal.svg') }}" alt="search-normal">
 
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     </form>
@@ -42,13 +42,13 @@
                 <div class="header-right-content d-flex align-items-center">
                     <div class="header-right-option">
                         <a href="" class="dropdown-item fullscreen-btn" id="fullscreen-button">
-                            <img src="assets/dash/images/icon/maximize.svg" alt="maximize">
+                            <img src="{{ asset('assets/dash/images/icon/maximize.svg') }}" alt="maximize">
                         </a>
                     </div>
                     <div class="header-right-option notification-option dropdown">
                         <div class="dropdown-item dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="notification-btn">
-                                <img src="assets/dash/images/icon/notification.svg" alt="notification">
+                                <img src="{{ asset('assets/dash/images/icon/notification.svg') }}" alt="notification">
                                 <span class="badge">4</span>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                             <img src="{{ asset('assets/dash/images/avatar.png') }}" alt="avatar">
                             <div class="d-none d-lg-block d-md-block">
                                 <h3>{{ auth()->user()->nom }} {{ auth()->user()->prenoms }}</h3>
-                                <span>Super Admin</span>
+                                <span>{{implode(',', auth()->user()->roles()->pluck('name')->toArray())}}</span>
                             </div>
                         </a>
 

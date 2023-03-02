@@ -16,4 +16,14 @@ class Alert extends Model
         'agent_id',
         'path',
     ];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function agent()
+    {
+        return $this->belongsTo(User::class, 'agent_id');
+    }
 }
