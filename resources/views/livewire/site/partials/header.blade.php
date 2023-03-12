@@ -56,14 +56,7 @@
                                 <!-- <i class="fab fa-user-circle-o"></i> -->
                             </a>
                         </li>
-                        @if (auth()->user()->hasRole('Administrateur'))
-                        <li>
-                            <a href="{{ route('dashboard') }}" class="link-underline link-underline-1">
-                                <span>Dashboard</span>
-                                <!-- <i class="fab fa-user-circle-o"></i> -->
-                            </a>
-                        </li>
-                        @endif
+
                         @if (Auth::guest())
                         <li>
                             <a href="{{ route('login') }}" class="link-underline link-underline-1">
@@ -72,6 +65,14 @@
                             </a>
                         </li>
                         @else
+                        @if (auth()->user()->hasRole('Administrateur'))
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="link-underline link-underline-1">
+                                <span>Dashboard</span>
+                                <!-- <i class="fab fa-user-circle-o"></i> -->
+                            </a>
+                        </li>
+                        @endif
                         @if (auth()->user()->cartItems->count() > 0)
                         <li>
                             <a href="{{ route('site.panier') }}" class="link-underline link-underline-1">
@@ -82,6 +83,7 @@
                                 </span>
                             </a>
                         </li>
+
                         @else
                         <li>
                             <a href="{{ route('site.contact') }}" class="link-underline link-underline-1">
